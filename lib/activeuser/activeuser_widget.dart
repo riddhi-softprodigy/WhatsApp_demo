@@ -121,117 +121,77 @@ class _ActiveuserWidgetState extends State<ActiveuserWidget> {
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            final chatsCreateData = createChatsRecordData(
-                              user: currentUserReference,
-                              userA: currentUserReference,
-                              userB: listViewUsersRecord.reference,
-                              lastMessage: 'NA',
-                              lastMessageTime: getCurrentTimestamp,
-                              image: listViewUsersRecord.photoUrl,
-                              messageSeen: false,
-                            );
-                            await ChatsRecord.collection
-                                .doc()
-                                .set(chatsCreateData);
-                            context.safePop();
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  final chatsCreateData = createChatsRecordData(
-                                    user: currentUserReference,
-                                    userA: currentUserReference,
-                                    userB: listViewUsersRecord.reference,
-                                    lastMessage: 'NA',
-                                    lastMessageTime: getCurrentTimestamp,
-                                    image: listViewUsersRecord.photoUrl,
-                                    messageSeen: false,
-                                  );
-                                  await ChatsRecord.collection
-                                      .doc()
-                                      .set(chatsCreateData);
-                                  context.safePop();
-                                },
-                                child: Hero(
-                                  tag: listViewUsersRecord.photoUrl,
-                                  transitionOnUserGestures: true,
-                                  child: Container(
-                                    width: 120.0,
-                                    height: 120.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.network(
-                                      listViewUsersRecord.photoUrl,
-                                      fit: BoxFit.fitWidth,
-                                    ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                final chatsCreateData = createChatsRecordData(
+                                  user: currentUserReference,
+                                  userA: currentUserReference,
+                                  userB: listViewUsersRecord.reference,
+                                  lastMessage: 'NA',
+                                  lastMessageTime: getCurrentTimestamp,
+                                  image: listViewUsersRecord.photoUrl,
+                                  messageSeen: false,
+                                );
+                                await ChatsRecord.collection
+                                    .doc()
+                                    .set(chatsCreateData);
+                                context.safePop();
+                              },
+                              child: Hero(
+                                tag: listViewUsersRecord.photoUrl,
+                                transitionOnUserGestures: true,
+                                child: Container(
+                                  width: 120.0,
+                                  height: 120.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    listViewUsersRecord.photoUrl,
+                                    fit: BoxFit.fitWidth,
                                   ),
                                 ),
                               ),
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('ChatList');
-                                    },
-                                    child: Text(
-                                      listViewUsersRecord.displayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                  ),
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('ChatList');
-                                    },
-                                    child: Text(
-                                      listViewUsersRecord.email,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent2,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  listViewUsersRecord.displayName,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                Text(
+                                  listViewUsersRecord.email,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     );

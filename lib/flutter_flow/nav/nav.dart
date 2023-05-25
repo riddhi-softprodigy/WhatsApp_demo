@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow_theme.dart';
 import '/backend/backend.dart';
 
@@ -88,9 +89,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ProfileWidget(),
             ),
             FFRoute(
-              name: 'Blank',
-              path: 'blank',
-              builder: (context, params) => BlankWidget(),
+              name: 'Status',
+              path: 'status',
+              builder: (context, params) => StatusWidget(
+                userRef: params.getParam(
+                    'userRef', ParamType.DocumentReference, false, ['users']),
+                pageIndex: params.getParam('pageIndex', ParamType.int),
+              ),
             ),
             FFRoute(
               name: 'ChatList',
@@ -119,11 +124,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Activeuser',
               path: 'activeuser',
               builder: (context, params) => ActiveuserWidget(),
+            ),
+            FFRoute(
+              name: 'VideoPlayer',
+              path: 'videoPlayer',
+              builder: (context, params) => VideoPlayerWidget(
+                videoUrl: params.getParam('videoUrl', ParamType.String),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -305,9 +318,13 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Container(
                   color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/ryan-parker-ucnZANGmyxM-unsplash.jpg',
-                    fit: BoxFit.cover,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/nabfncvpsn241.jpeg',
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      height: MediaQuery.of(context).size.height * 1.0,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 )
               : page;

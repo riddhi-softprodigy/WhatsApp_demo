@@ -39,12 +39,18 @@ class ChatMessagesRecord extends FirestoreRecord {
   String get image => _image ?? '';
   bool hasImage() => _image != null;
 
+  // "video" field.
+  String? _video;
+  String get video => _video ?? '';
+  bool hasVideo() => _video != null;
+
   void _initializeFields() {
     _user = snapshotData['user'] as DocumentReference?;
     _chatUser = snapshotData['chat_user'] as DocumentReference?;
     _text = snapshotData['text'] as String?;
     _timestamp = snapshotData['timestamp'] as DateTime?;
     _image = snapshotData['image'] as String?;
+    _video = snapshotData['video'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -79,6 +85,7 @@ Map<String, dynamic> createChatMessagesRecordData({
   String? text,
   DateTime? timestamp,
   String? image,
+  String? video,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -87,6 +94,7 @@ Map<String, dynamic> createChatMessagesRecordData({
       'text': text,
       'timestamp': timestamp,
       'image': image,
+      'video': video,
     }.withoutNulls,
   );
 
