@@ -62,30 +62,37 @@ class _LoginWidgetState extends State<LoginWidget> {
                   width: MediaQuery.of(context).size.width * 1.0,
                   height: MediaQuery.of(context).size.height * 0.3,
                   decoration: BoxDecoration(
-                    color: Color(0xFF25D366),
+                    color: FlutterFlowTheme.of(context).primary,
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjCr7Hknc-AzhibvOqenrHkycLzjiHvIk3bQ&usqp=CAU',
-                        width: 80.0,
-                        height: 80.0,
-                        fit: BoxFit.cover,
-                      ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
-                          'WhatsApp',
+                          'Chat',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
                                     color: Color(0xFFEDE8E8),
-                                    fontSize: 18.0,
+                                    fontSize: 20.0,
                                     letterSpacing: 1.0,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                        child: Text(
+                          'MESSANGER',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context).accent4,
+                                    fontSize: 18.0,
                                   ),
                         ),
                       ),
@@ -284,7 +291,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF25D366),
+                            color: FlutterFlowTheme.of(context).secondary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -319,7 +326,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Outfit',
-                                    color: Color(0xFF25D366),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
                                     fontSize: 16.0,
                                   ),
                             ),

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,7 +51,7 @@ class _ChatListWidgetState extends State<ChatListWidget> {
           onPressed: () async {
             context.pushNamed('Activeuser');
           },
-          backgroundColor: Color(0xFF25D366),
+          backgroundColor: FlutterFlowTheme.of(context).secondary,
           elevation: 8.0,
           child: Icon(
             Icons.message_rounded,
@@ -61,14 +62,14 @@ class _ChatListWidgetState extends State<ChatListWidget> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(60.0),
           child: AppBar(
-            backgroundColor: Color(0xFF075E54),
+            backgroundColor: FlutterFlowTheme.of(context).primary,
             automaticallyImplyLeading: false,
             title: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'WhatsApp',
+                  'Chat Messanger',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Roboto',
                         color: Colors.white,
@@ -204,10 +205,10 @@ class _ChatListWidgetState extends State<ChatListWidget> {
                                         if (!snapshot.hasData) {
                                           return Center(
                                             child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
+                                              width: 40.0,
+                                              height: 40.0,
                                               child: CircularProgressIndicator(
-                                                color: Color(0xFF075E54),
+                                                color: Color(0x00283BE2),
                                               ),
                                             ),
                                           );
@@ -273,12 +274,12 @@ class _ChatListWidgetState extends State<ChatListWidget> {
                                                       if (!snapshot.hasData) {
                                                         return Center(
                                                           child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
+                                                            width: 40.0,
+                                                            height: 40.0,
                                                             child:
                                                                 CircularProgressIndicator(
                                                               color: Color(
-                                                                  0xFF075E54),
+                                                                  0x00283BE2),
                                                             ),
                                                           ),
                                                         );
@@ -301,9 +302,11 @@ class _ChatListWidgetState extends State<ChatListWidget> {
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
-                                                          child: Image.network(
-                                                            circleImageUsersRecord
-                                                                .photoUrl,
+                                                          child:
+                                                              CachedNetworkImage(
+                                                            imageUrl:
+                                                                circleImageUsersRecord
+                                                                    .photoUrl,
                                                             fit:
                                                                 BoxFit.fitWidth,
                                                           ),
@@ -324,40 +327,34 @@ class _ChatListWidgetState extends State<ChatListWidget> {
                                                       if (!snapshot.hasData) {
                                                         return Center(
                                                           child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
+                                                            width: 40.0,
+                                                            height: 40.0,
                                                             child:
                                                                 CircularProgressIndicator(
                                                               color: Color(
-                                                                  0xFF075E54),
+                                                                  0x00283BE2),
                                                             ),
                                                           ),
                                                         );
                                                       }
                                                       final circleImageUsersRecord =
                                                           snapshot.data!;
-                                                      return Hero(
-                                                        tag:
-                                                            circleImageUsersRecord
-                                                                .photoUrl,
-                                                        transitionOnUserGestures:
-                                                            true,
-                                                        child: Container(
-                                                          width: 100.0,
-                                                          height: 100.0,
-                                                          clipBehavior:
-                                                              Clip.antiAlias,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          child: Image.network(
-                                                            circleImageUsersRecord
-                                                                .photoUrl,
-                                                            fit:
-                                                                BoxFit.fitWidth,
-                                                          ),
+                                                      return Container(
+                                                        width: 100.0,
+                                                        height: 100.0,
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          imageUrl:
+                                                              circleImageUsersRecord
+                                                                  .photoUrl,
+                                                          fit: BoxFit.fitWidth,
                                                         ),
                                                       );
                                                     },
@@ -386,12 +383,12 @@ class _ChatListWidgetState extends State<ChatListWidget> {
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50.0,
-                                                                height: 50.0,
+                                                                width: 40.0,
+                                                                height: 40.0,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   color: Color(
-                                                                      0xFF075E54),
+                                                                      0x00283BE2),
                                                                 ),
                                                               ),
                                                             );
@@ -432,12 +429,12 @@ class _ChatListWidgetState extends State<ChatListWidget> {
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50.0,
-                                                                height: 50.0,
+                                                                width: 40.0,
+                                                                height: 40.0,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   color: Color(
-                                                                      0xFF075E54),
+                                                                      0x00283BE2),
                                                                 ),
                                                               ),
                                                             );
@@ -738,10 +735,11 @@ class _ChatListWidgetState extends State<ChatListWidget> {
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 40.0,
+                                      height: 40.0,
                                       child: CircularProgressIndicator(
-                                        color: Color(0xFF075E54),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -807,12 +805,12 @@ class _ChatListWidgetState extends State<ChatListWidget> {
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 40.0,
+                                                        height: 40.0,
                                                         child:
                                                             CircularProgressIndicator(
                                                           color:
-                                                              Color(0xFF075E54),
+                                                              Color(0x00283BE2),
                                                         ),
                                                       ),
                                                     );
